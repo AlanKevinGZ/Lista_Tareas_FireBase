@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <title>Lista de Tareas</title>
+  </head>
+  <body>
+    <header>
+      <div class="barra contenedor">
+        <h1>Lista de Tareas</h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="contenido_form contenedor">
+        <form id="agregarTarea" class="formTarea">
+          <label for="tarea">Ingrese la Tarea:</label>
+          <input type="text" placeholder="Tarea" name="tarea" id="tarea" />
+
+          <input type="submit" value="Agregar" />
+        </form>
+      </div>
+    </main>
+
+    <div class="tabla_agregar contenedor">
+      <ul class="coleccion"></ul>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Actualizar</h4>
+          <input id="txtTarea" type="text" name="updateTare" placeholder="Actualizar Tarea">
+        </div>
+        <div class="modal-footer">
+          <a href="#!" id="updateBtn" class="modal-close waves-effect waves-green btn-flat">
+            Actualizar</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".modal");
+        var instances = M.Modal.init(elems);
+      });
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBP2607QGWazFxIM2Ymjjim2MWL_mUD-fA",
+
+        authDomain: "listatareas-f8c89.firebaseapp.com",
+
+        projectId: "listatareas-f8c89",
+
+        storageBucket: "listatareas-f8c89.appspot.com",
+
+        messagingSenderId: "219857117326",
+
+        appId: "1:219857117326:web:5ee720b3a39aab39cd29df",
+      };
+
+      // Initialize Firebase
+
+      firebase.initializeApp(firebaseConfig);
+
+      // Initialize Firebase
+      var db = firebase.firestore();
+    </script>
+    <script src="script/app.js"></script>
+  </body>
+</html>
